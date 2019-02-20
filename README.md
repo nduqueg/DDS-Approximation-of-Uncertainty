@@ -1,7 +1,7 @@
 # DDS-Aproximation-of-Uncertainty
 An implementation in R of the DDS-AU uncertainty estimation algorithm, developed by Tolson &amp; Shoemaker (2008).
 Questions relating to this implementation of the algorithm can be directed to nduqueg@unal.edu.co. 
-This code is made available for free use with the condition that Tolson &amp; Shoemaker (2008) and Duque-Gardeazabal &amp; Fuentes (2019) will be cited.
+This code is made available for free use with the condition that Tolson, B. A., &amp; Shoemaker, C. A., (2008) and Duque-Gardeazabal N. &amp; Fuentes C. (2019) will be cited.
 
 DDS-AU
 ==============================
