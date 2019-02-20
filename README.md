@@ -7,7 +7,7 @@ DDS-AU
 ==============================
 The DDS-AU algortihm must be cited as Tolson, B. A., and C. A. Shoemaker (2008), Efficient prediction uncertainty approximation in the calibration ofenvironmental simulation models, Water Resour. Res., 44, W04411, doi:10.1029/2007WR005869.
 
-This implementation and its analysis must be cited as Duque-Gardeazabal &amp; Fuentes (2019), Using R to easily and efficiently predict the uncertainty in simu-lations of environmental models, Revista Hidrolatinoamericana de Jóvenes Investigadores y Profesionales, vol. 3.
+This implementation and its analysis must be cited as Duque-Gardeazabal N. &amp; Fuentes C. (2019), Using R to easily and efficiently predict the uncertainty in simu-lations of environmental models, Revista Hidrolatinoamericana de Jóvenes Investigadores y Profesionales, vol. 3.
 
 WHY SHOULD YOU USE DDS-AU?
 ------------------
