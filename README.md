@@ -27,15 +27,20 @@ The script includes four functions to perform the sample of behavioural paramete
 
 Inputs
 ====================
-+ xBounds.df must be a dataframe with 1st column as minimum, 2nd column as maximum
-+ numIter is an integer
-  # numBeh is an integer
-  # per.m.dds is a double with the percentage intend to affect the computational budget of each DDS
-  # threshold is a double
-  # r is a double between 0 and 1, the default value is 0.2
-  # OBJFUN is a function which returns a scalar value, for which we are trying to minimize.  
++ xBounds.df must be a dataframe with 1st column as minimum and 2nd column as maximum of the parameter range.
++ numIter is an integer which defines the total of model simulations.
++ numBeh is an integer which defines the number of independent DDS and the maximum number of behavioural threshold.
++ per.m.dds is a double which indicates the percentage that affects the computational budget of each independent DDS.
++ threshold is a double which classifies the parameter sets in non-behavioural or behavioural.
++ r is a double between 0 and 1, the default value is 0.2 (DDS parameter of perturbation).
++ OBJFUN is a function which returns a scalar value, for which we are trying to minimize.
++ obs is a vector containing the streamflow observations
++ dates is a dataframe containing the dates of begining and ending of the observations and simulations, and the time interval
 
 Outputs
 ====================
+A list that cointains two more list. The first one contains the behavioural sets of parameters and their respective objective function value, and the second one cointains all the simulations classified by the independent DDS number.
 
-
+Requirements
+====================
+zoo and ggplot libraries must be installed before performing the post_dds_au script
