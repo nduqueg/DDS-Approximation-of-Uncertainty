@@ -23,11 +23,17 @@ Routines
 The script includes four functions to perform the sample of behavioural parameters, the clasiffication of them in non-behavioural and behavioural, and finally execute a post-processing so the uncertainty of the simulated variables can be quantified. These routines are called:
 + dds_au, which calls the independent DDS algorithms (algorithm which is programed in a different fuction and can be executed independently to just calibrate a environmental model as state by Tolson, B. A., &amp; Shoemaker, C. A., (2007)). The dds_au function automatically classifies the results of the independent DDS in behavioural or non behavioural taking into account a threshold assigned by the user. The algorithm follows the recomedations made by Tolson, B. A., &amp; Shoemaker, C. A., (2008) regarding the aleatory assigment of the iterations to each DDS.
 + reclas_threshold, which recieves the output of a dds_au process and once more identifies the behavioural parameters with a different threshold.
-+post_dds_au, which only performs the simulations of the behavioural parameters and calculates several uncertainty band metrics, using the observations, the bounds of the bands and the mean of the simulations.
++ post_dds_au, which only performs the simulations of the behavioural parameters and calculates several uncertainty band metrics, using the observations, the bounds of the bands and the mean of the simulations.
 
 Inputs
 ====================
-
++ xBounds.df must be a dataframe with 1st column as minimum, 2nd column as maximum
++ numIter is an integer
+  # numBeh is an integer
+  # per.m.dds is a double with the percentage intend to affect the computational budget of each DDS
+  # threshold is a double
+  # r is a double between 0 and 1, the default value is 0.2
+  # OBJFUN is a function which returns a scalar value, for which we are trying to minimize.  
 
 Outputs
 ====================
