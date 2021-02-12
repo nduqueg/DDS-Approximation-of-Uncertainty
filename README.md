@@ -8,6 +8,7 @@ DDS-AU
 The DDS-AU algortihm must be cited as Tolson, B. A., and C. A. Shoemaker (2008), Efficient prediction uncertainty approximation in the calibration ofenvironmental simulation models, Water Resour. Res., 44, W04411, doi:10.1029/2007WR005869.
 
 This implementation and its analysis must be cited as Duque-Gardeazabal N. &amp; Fuentes C. (2019), Using R to easily and efficiently predict the uncertainty in simu-lations of environmental models, Revista Hidrolatinoamericana de Jóvenes Investigadores y Profesionales, vol. 3.
+(https://www.researchgate.net/publication/334812575_Using_R_to_easily_and_efficiently_predict_the_uncertainty_in_simulations_of_environmental_models)
 
 Parallel algortihm
 ------------------
@@ -25,7 +26,7 @@ Therefore, you should use DDS-AU to estimate the parameter uncertainty in these 
 Routines
 ==============================
 The script includes four functions to perform the sample of behavioural parameters, the clasiffication of them in non-behavioural and behavioural, and finally execute a post-processing so the uncertainty of the simulated variables can be quantified. These routines are called:
-+ dds_au, which calls the independent DDS algorithms (algorithm which is programed in a different fuction and can be executed independently to just calibrate a environmental model as state by Tolson, B. A., &amp; Shoemaker, C. A., (2007)). The dds_au function automatically classifies the results of the independent DDS in behavioural or non behavioural taking into account a threshold assigned by the user. The algorithm follows the recomedations made by Tolson, B. A., &amp; Shoemaker, C. A., (2008) regarding the aleatory assigment of the iterations to each DDS.
++ dds_au, which calls the independent DDS algorithms (algorithm which is programed in a different fuction and can be executed independently to just calibrate an environmental model as state by Tolson, B. A., &amp; Shoemaker, C. A., (2007)). The dds_au function automatically classifies the results of the independent DDS in behavioural or non behavioural taking into account a threshold assigned by the user. The algorithm follows the recomedations made by Tolson, B. A., &amp; Shoemaker, C. A., (2008) regarding the aleatory assigment of the iterations to each DDS.
 + reclas_threshold, which recieves the output of a dds_au process and once more identifies the behavioural parameters with a different threshold.
 + post_dds_au, which only performs the simulations of the behavioural parameters and calculates several uncertainty band metrics, using the observations, the bounds of the bands and the mean of the simulations.
 
@@ -39,7 +40,7 @@ Inputs
 + r is a double between 0 and 1, the default value is 0.2 (DDS parameter of perturbation).
 + OBJFUN is a function which returns a scalar value, for which we are trying to minimize.
 + numCores is a integer indicating the number of CPU cores to use, by default uses 1
-+ packages is a character vectaor indicating the packages needed to excecute the OBJFUN
++ packages is a character vector indicating the packages needed to excecute the OBJFUN
 + obs is a vector containing the streamflow observations
 + dates is a dataframe containing the dates of begining and ending of the observations and simulations, and the time interval
 
