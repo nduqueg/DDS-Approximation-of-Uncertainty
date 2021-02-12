@@ -1,4 +1,4 @@
-# DDS-Aproximation-of-Uncertainty
+# DDS-Approximation-of-Uncertainty
 An implementation in R of the DDS-AU uncertainty estimation algorithm, developed by Tolson &amp; Shoemaker (2008).
 Questions relating to this implementation of the algorithm can be directed to nduqueg@unal.edu.co. 
 This code is made available for free use with the condition that Tolson, B. A., &amp; Shoemaker, C. A., (2008) and Duque-Gardeazabal N. &amp; Fuentes C. (2019) will be cited.
@@ -8,6 +8,10 @@ DDS-AU
 The DDS-AU algortihm must be cited as Tolson, B. A., and C. A. Shoemaker (2008), Efficient prediction uncertainty approximation in the calibration ofenvironmental simulation models, Water Resour. Res., 44, W04411, doi:10.1029/2007WR005869.
 
 This implementation and its analysis must be cited as Duque-Gardeazabal N. &amp; Fuentes C. (2019), Using R to easily and efficiently predict the uncertainty in simu-lations of environmental models, Revista Hidrolatinoamericana de Jóvenes Investigadores y Profesionales, vol. 3.
+
+Parallel algortihm
+------------------
+A new parallel code is made available for increasing the speed of the whole algorithm. It is done by running simultaniously DDS in separate cores.
 
 WHY SHOULD YOU USE DDS-AU?
 ------------------
@@ -34,6 +38,8 @@ Inputs
 + threshold is a double which classifies the parameter sets in non-behavioural or behavioural.
 + r is a double between 0 and 1, the default value is 0.2 (DDS parameter of perturbation).
 + OBJFUN is a function which returns a scalar value, for which we are trying to minimize.
++ numCores is a integer indicating the number of CPU cores to use, by default uses 1
++ packages is a character vectaor indicating the packages needed to excecute the OBJFUN
 + obs is a vector containing the streamflow observations
 + dates is a dataframe containing the dates of begining and ending of the observations and simulations, and the time interval
 
