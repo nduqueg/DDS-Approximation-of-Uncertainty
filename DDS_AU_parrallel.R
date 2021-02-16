@@ -44,6 +44,13 @@ dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJ
   cl <- makeSOCKcluster(numCores)
   registerDoSNOW(cl)
   
+  # creation local temporal simulation directory
+  if (is.na(dir)){
+    dir.create( paste( getwd(), "/local_DDS", sep=""))
+    dir <- paste( getwd(), "/local_DDS", sep="")
+  }else{
+    if( !dir.exists(dir)){ dir.create(dir)}
+  }
   #  Parallel processing of the numBeh DDS
   pb <- tkProgressBar(max= numBeh, title="Percentage of independent DDS excecuted")
   progress <- function(n) setTkProgressBar(pb, n, label=paste(n/numBeh*100,"%"), width= 500)
@@ -64,7 +71,8 @@ dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJ
       Obj.Fun <- NA
       
     }
-    
+    # local saving 
+    save(all.sim.DDS, list="all.sim.DDS", file= paste(dir, "/DDS_",i, ".RData",sep=""))
     
     DDS.output <- list(Param= Param, Obj.Fun= Obj.Fun, All.sim= all.sim.DDS)
   }
@@ -78,7 +86,7 @@ dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJ
   for (i in 1:numBeh){  # extraction of the behavioral so as to have them isolated
     Behavioural[["Param"]][i,] <- output.list[[i]][["Param"]]
     Behavioural[["Obj.Fun."]][i] <- output.list[[i]][["Obj.Fun"]]
-    all.sim[[i]] <- output.list[[i]]["All.sim"]
+    all.sim[[i]] <- output.list[[i]][["All.sim"]]
   }
   
   

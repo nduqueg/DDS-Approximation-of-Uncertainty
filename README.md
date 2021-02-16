@@ -12,7 +12,7 @@ This implementation and its analysis must be cited as Duque-Gardeazabal N. &amp;
 
 Parallel algortihm
 ------------------
-A new parallel code is made available for increasing the speed of the whole algorithm. It is done by running simultaniously DDS in separate cores.
+A new parallel code is made available for increasing the speed of the whole algorithm. It is done by running simultaniously DDS in separate cores. It saves, on the run, the results of the independent DDS in a directory so as to prevent lossing the results if crashing occurs
 
 WHY SHOULD YOU USE DDS-AU?
 ------------------
@@ -40,6 +40,7 @@ Inputs
 + r is a double between 0 and 1, the default value is 0.2 (DDS parameter of perturbation).
 + OBJFUN is a function which returns a scalar value, for which we are trying to minimize.
 + numCores is a integer indicating the number of CPU cores to use, by default uses 1
++ dir is a string indicating a directory where the results of the independent DDS are saved on the run
 + packages is a character vector indicating the packages needed to excecute the OBJFUN
 + obs is a vector containing the streamflow observations
 + dates is a dataframe containing the dates of begining and ending of the observations and simulations, and the time interval
