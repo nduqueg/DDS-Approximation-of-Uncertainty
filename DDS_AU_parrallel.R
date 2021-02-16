@@ -5,7 +5,7 @@ library(foreach)
 library(doSNOW)
 library(tcltk)
 
-dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJFUN, numCores=NA, packages= NA, ...){
+dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJFUN, numCores=NA, dir= NA, packages= NA, ...){
   # INPUTS:
   # xBounds.df must be a dataframe with 1st column as minimum and 2nd column as maximum of the parameter range.
   # numIter is an integer which defines the total of model simulations.
@@ -52,8 +52,8 @@ dds_au<-function(xBounds.df, numIter, numBeh, per.m.dds, threshold, r = 0.2, OBJ
     if( !dir.exists(dir)){ dir.create(dir)}
   }
   #  Parallel processing of the numBeh DDS
-  pb <- tkProgressBar(max= numBeh, title="Percentage of independent DDS excecuted")
-  progress <- function(n) setTkProgressBar(pb, n, label=paste(n/numBeh*100,"%"), width= 500)
+  pb <- tkProgressBar(max= numBeh, title="Percentage of independent DDS excecuted", width= 500)
+  progress <- function(n) setTkProgressBar(pb, n, label=paste(n/numBeh*100,"%"))
   opts <- list(progress=progress)
   output.list <- foreach (i= 1:numBeh, .export = ls(globalenv()), 
                           .packages= packages,
